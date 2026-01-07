@@ -1,0 +1,177 @@
+import { SlideConfig } from "@/types/quiz";
+
+export const quizSlides: SlideConfig[] = [
+  {
+    id: 1,
+    type: 'choice',
+    title: 'Você possui Conhecimento Valioso mas ele está gerando o retorno financeiro que merece?',
+    subtitle: 'Descubra qual modelo de mentoria se alinha à sua experiência, disponibilidade e objetivos e comece a transformar autoridade em receita previsível.',
+    question: 'Qual a sua atuação?',
+    options: [
+      { value: 'profissional_liberal', label: 'PROFISSIONAL LIBERAL', icon: '👔' },
+      { value: 'empresario', label: 'EMPRESÁRIO (A)', icon: '🏢' },
+    ],
+    answerKey: 'atuacao',
+  },
+  {
+    id: 2,
+    type: 'intro',
+    title: 'Diagnóstico Estratégico de Mentoria',
+    subtitle: 'Nas próximas perguntas, vamos mapear seu perfil e identificar o modelo de mentoria ideal para transformar seu conhecimento em um negócio lucrativo.',
+    buttonText: 'INICIAR DIAGNÓSTICO ESTRATÉGICO',
+  },
+  {
+    id: 3,
+    type: 'question',
+    question: 'Qual descrição representa melhor o seu perfil de atuação atual?',
+    options: [
+      { value: 'empresario_estruturado', label: 'Empresário com operação estruturada (equipe, processos, clientes recorrentes)' },
+      { value: 'profissional_consolidado', label: 'Profissional liberal consolidado (consultório, escritório, atendimentos individuais)' },
+      { value: 'especialista_tecnico', label: 'Especialista técnico reconhecido no mercado (palestras, treinamentos, projetos específicos)' },
+      { value: 'hibrido', label: 'Híbrido: atuo como profissional liberal e também gerencio uma operação comercial' },
+    ],
+    answerKey: 'perfil_atuacao',
+  },
+  {
+    id: 4,
+    type: 'question',
+    question: 'Há quanto tempo você atua de forma consistente no seu mercado?',
+    options: [
+      { value: '1-3', label: 'Entre 1 e 3 anos' },
+      { value: '4-7', label: 'Entre 4 e 7 anos' },
+      { value: '8-15', label: 'Entre 8 e 15 anos' },
+      { value: '15+', label: 'Mais de 15 anos' },
+    ],
+    answerKey: 'tempo_mercado',
+  },
+  {
+    id: 5,
+    type: 'question',
+    question: 'Qual faixa descreve melhor seu faturamento médio mensal atual?',
+    options: [
+      { value: 'ate_5k', label: 'Até 5k por mês' },
+      { value: '5k_10k', label: 'Entre 5k a 10k por mês' },
+      { value: '10k_20k', label: 'Entre 10k a 20k por mês' },
+      { value: '20k_50k', label: 'Entre 20k a 50k por mês' },
+      { value: '50k_100k', label: 'Entre 50k a 100k' },
+      { value: '100k+', label: 'Acima de 100k' },
+    ],
+    answerKey: 'faturamento_mensal',
+  },
+  {
+    id: 6,
+    type: 'question',
+    question: 'Que tipo de demanda você atrai com mais frequência?',
+    options: [
+      { value: 'solucao_tecnica', label: 'Pessoas buscando solução técnica específica (um problema pontual)' },
+      { value: 'direcionamento_estrategico', label: 'Clientes que precisam de direcionamento estratégico contínuo' },
+      { value: 'estruturar_escalar', label: 'Empresários ou profissionais querendo estruturar ou escalar operações' },
+      { value: 'decisoes_alto_impacto', label: 'Líderes que buscam decisões de alto impacto com acompanhamento próximo' },
+    ],
+    answerKey: 'tipo_demanda',
+  },
+  {
+    id: 7,
+    type: 'question',
+    question: 'Na prática, qual é a natureza do problema que você resolve melhor?',
+    options: [
+      { value: 'clareza_decisao', label: 'Clareza e decisão (ajudo pessoas a enxergarem o caminho)' },
+      { value: 'implementacao_execucao', label: 'Implementação e execução (transformo estratégia em ação)' },
+      { value: 'especializacao_tecnica', label: 'Especialização técnica profunda (resolvo o que poucos resolvem)' },
+      { value: 'visao_negocio', label: 'Visão de negócio e posicionamento (construo autoridade e diferenciação)' },
+    ],
+    answerKey: 'natureza_problema',
+  },
+  {
+    id: 8,
+    type: 'question',
+    question: 'Quantos atendimentos ou projetos simultâneos você consegue sustentar com qualidade?',
+    options: [
+      { value: '1-3', label: 'Entre 1 e 3 (foco total, alta personalização)' },
+      { value: '4-8', label: 'Entre 4 e 8 (equilíbrio entre atenção e escala)' },
+      { value: '9-15', label: 'Entre 9 e 15 (estrutura para grupos ou processos organizados)' },
+      { value: '15+', label: 'Mais de 15 (tenho método replicável e suporte estruturado)' },
+    ],
+    answerKey: 'capacidade_projetos',
+  },
+  {
+    id: 9,
+    type: 'question',
+    question: 'Quanto tempo por semana você pode dedicar, de forma realista, para mentorar outras pessoas?',
+    options: [
+      { value: '2-4', label: 'Entre 2 e 4 horas semanais' },
+      { value: '5-8', label: 'Entre 5 e 8 horas semanais' },
+      { value: '9-12', label: 'Entre 9 e 12 horas semanais' },
+      { value: '12+', label: 'Mais de 12 horas semanais' },
+    ],
+    answerKey: 'horas_semanais',
+  },
+  {
+    id: 10,
+    type: 'question',
+    question: 'Como você descreveria o estado atual do seu conhecimento e metodologia?',
+    options: [
+      { value: 'na_cabeca', label: 'Está na minha cabeça, funciona, mas não está documentado' },
+      { value: 'processos_claros', label: 'Tenho processos claros, mas ainda não sistematizados para ensinar' },
+      { value: 'metodo_estruturado', label: 'Já tenho método estruturado e sei exatamente como transmitir' },
+      { value: 'frameworks_prontos', label: 'Possuo frameworks, casos reais e material pronto para replicação' },
+    ],
+    answerKey: 'estado_metodologia',
+  },
+  {
+    id: 11,
+    type: 'question',
+    question: 'Qual é a capacidade de investimento do público que você atende ou deseja atender?',
+    options: [
+      { value: '5k_15k', label: 'Entre R$5.000 e R$15.000' },
+      { value: '15k_40k', label: 'Entre R$15.000 e R$40.000' },
+      { value: '40k_80k', label: 'Entre R$40.000 e R$80.000' },
+      { value: '80k+', label: 'Acima de R$80.000' },
+    ],
+    answerKey: 'capacidade_investimento_publico',
+  },
+  {
+    id: 12,
+    type: 'question',
+    question: 'Qual é o seu objetivo principal nos próximos 90 dias?',
+    options: [
+      { value: 'validar_monetizacao', label: 'Validar se consigo monetizar meu conhecimento de forma sólida' },
+      { value: 'estruturar_modelo', label: 'Estruturar um modelo de mentoria escalável e previsível' },
+      { value: 'aumentar_ticket', label: 'Aumentar ticket médio sem sacrificar qualidade ou agenda' },
+      { value: 'consolidar_autoridade', label: 'Consolidar autoridade e atrair clientes de alto valor' },
+    ],
+    answerKey: 'objetivo_90_dias',
+  },
+  {
+    id: 13,
+    type: 'question',
+    question: 'Que tipo de relacionamento você prefere construir com seus mentorados?',
+    options: [
+      { value: 'intenso_transformador', label: 'Intenso e transformador, com poucos clientes por vez' },
+      { value: 'proximo_estrategico', label: 'Próximo e estratégico, mas com escala controlada' },
+      { value: 'metodo_autonomia', label: 'Baseado em método claro, com autonomia orientada' },
+      { value: 'hibrido_1_1_grupo', label: 'Híbrido: momentos 1:1 + suporte em grupo estruturado' },
+    ],
+    answerKey: 'relacionamento_preferido',
+  },
+  {
+    id: 14,
+    type: 'question',
+    question: 'Qual posicionamento você deseja ocupar no mercado?',
+    options: [
+      { value: 'especialista_tecnico', label: 'Especialista técnico de referência (o melhor no que faço)' },
+      { value: 'estrategista_confianca', label: 'Estrategista de confiança (quem toma decisões me procura)' },
+      { value: 'arquiteto_negocios', label: 'Arquiteto de negócios (ajudo a construir e escalar operações)' },
+      { value: 'autoridade_multidisciplinar', label: 'Autoridade multidisciplinar (domino método, visão e execução)' },
+    ],
+    answerKey: 'posicionamento_desejado',
+  },
+  {
+    id: 15,
+    type: 'loading',
+    title: 'Só um minuto!',
+    subtitle: 'Estamos calculando o seu resultado…',
+  },
+];
+
+export const CTA_URL = 'https://calendly.com/seu-link-aqui';
