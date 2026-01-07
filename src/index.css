@@ -2,82 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Consulting Design System - Navy & Gold */
+/* Instituto Global de Mentores Design System - Brown & Gold */
 
 @layer base {
   :root {
-    --background: 220 30% 97%;
-    --foreground: 220 40% 13%;
+    /* Base colors - dark brown/black background for high contrast */
+    --background: 25 30% 6%;
+    --foreground: 45 100% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card: 25 35% 10%;
+    --card-foreground: 45 100% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover: 25 35% 10%;
+    --popover-foreground: 45 100% 98%;
 
-    --primary: 220 60% 20%;
-    --primary-foreground: 45 100% 96%;
+    /* Primary - bright gold for high contrast */
+    --primary: 38 90% 60%;
+    --primary-foreground: 25 50% 8%;
 
-    --secondary: 220 25% 92%;
-    --secondary-foreground: 220 40% 13%;
+    /* Secondary - dark brown with light text */
+    --secondary: 25 35% 15%;
+    --secondary-foreground: 45 100% 95%;
 
-    --muted: 220 20% 94%;
-    --muted-foreground: 220 15% 45%;
+    /* Muted - darker brown */
+    --muted: 25 30% 12%;
+    --muted-foreground: 45 30% 75%;
 
-    --accent: 45 90% 55%;
-    --accent-foreground: 220 60% 15%;
+    /* Accent - bright gold/amber for maximum contrast */
+    --accent: 38 90% 60%;
+    --accent-foreground: 25 50% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 45 90% 55%;
+    --border: 25 30% 20%;
+    --input: 25 30% 20%;
+    --ring: 38 90% 60%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --gold: 45 90% 55%;
-    --gold-light: 45 85% 70%;
-    --gold-dark: 40 85% 42%;
-    --navy: 220 60% 20%;
-    --navy-light: 220 45% 35%;
-    --navy-dark: 220 70% 12%;
+    /* Custom tokens - Brown & Gold palette (adjusted for dark theme) */
+    --gold: 38 90% 60%;
+    --gold-light: 38 85% 75%;
+    --gold-dark: 35 80% 50%;
+    --brown: 30 50% 40%;
+    --brown-light: 30 45% 55%;
+    --brown-dark: 25 55% 20%;
+    --amber: 38 90% 60%;
+    --amber-light: 38 85% 75%;
+    --amber-dark: 35 80% 50%;
 
-    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%), hsl(40 85% 42%));
-    --gradient-navy: linear-gradient(135deg, hsl(220 60% 20%), hsl(220 70% 12%));
-    --shadow-elegant: 0 10px 40px -10px hsl(220 60% 20% / 0.15);
-    --shadow-card: 0 4px 20px -4px hsl(220 60% 20% / 0.08);
+    --gradient-gold: linear-gradient(135deg, hsl(38 90% 60%), hsl(35 80% 50%));
+    --gradient-brown: linear-gradient(135deg, hsl(30 50% 40%), hsl(25 55% 20%));
+    --gradient-warm: linear-gradient(135deg, hsl(38 90% 60%), hsl(30 50% 40%));
+    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
   }
 
   .dark {
-    --background: 220 50% 8%;
-    --foreground: 220 20% 95%;
+    /* Same as root - dark theme is default */
+    --background: 25 30% 6%;
+    --foreground: 45 100% 98%;
 
-    --card: 220 45% 12%;
-    --card-foreground: 220 20% 95%;
+    --card: 25 35% 10%;
+    --card-foreground: 45 100% 98%;
 
-    --popover: 220 45% 12%;
-    --popover-foreground: 220 20% 95%;
+    --popover: 25 35% 10%;
+    --popover-foreground: 45 100% 98%;
 
-    --primary: 45 90% 55%;
-    --primary-foreground: 220 60% 12%;
+    --primary: 38 90% 60%;
+    --primary-foreground: 25 50% 8%;
 
-    --secondary: 220 40% 18%;
-    --secondary-foreground: 220 20% 95%;
+    --secondary: 25 35% 15%;
+    --secondary-foreground: 45 100% 95%;
 
-    --muted: 220 35% 15%;
-    --muted-foreground: 220 15% 60%;
+    --muted: 25 30% 12%;
+    --muted-foreground: 45 30% 75%;
 
-    --accent: 45 90% 55%;
-    --accent-foreground: 220 60% 12%;
+    --accent: 38 90% 60%;
+    --accent-foreground: 25 50% 8%;
 
-    --destructive: 0 70% 45%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 35% 20%;
-    --input: 220 35% 20%;
-    --ring: 45 90% 55%;
+    --border: 25 30% 20%;
+    --input: 25 30% 20%;
+    --ring: 38 90% 60%;
   }
 }
 
@@ -94,25 +104,36 @@
 
 @layer utilities {
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(45 90% 55%), hsl(40 85% 42%));
+    background: linear-gradient(135deg, hsl(38 90% 60%), hsl(35 80% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-brown {
+    background: linear-gradient(135deg, hsl(38 90% 60%), hsl(30 50% 40%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-gradient-gold {
-    background: linear-gradient(135deg, hsl(45 90% 55%), hsl(40 85% 42%));
+    background: linear-gradient(135deg, hsl(38 90% 60%), hsl(35 80% 50%));
   }
 
-  .bg-gradient-navy {
-    background: linear-gradient(135deg, hsl(220 60% 20%), hsl(220 70% 12%));
+  .bg-gradient-brown {
+    background: linear-gradient(135deg, hsl(30 50% 40%), hsl(25 55% 20%));
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, hsl(38 90% 60%), hsl(30 50% 40%));
   }
 
   .shadow-elegant {
-    box-shadow: 0 10px 40px -10px hsl(220 60% 20% / 0.15);
+    box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
   }
 
   .shadow-card {
-    box-shadow: 0 4px 20px -4px hsl(220 60% 20% / 0.08);
+    box-shadow: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
   }
 }

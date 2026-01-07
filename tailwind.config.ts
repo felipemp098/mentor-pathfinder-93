@@ -52,10 +52,15 @@ export default {
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
         },
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-          dark: "hsl(var(--navy-dark))",
+        brown: {
+          DEFAULT: "hsl(var(--brown))",
+          light: "hsl(var(--brown-light))",
+          dark: "hsl(var(--brown-dark))",
+        },
+        amber: {
+          DEFAULT: "hsl(var(--amber))",
+          light: "hsl(var(--amber-light))",
+          dark: "hsl(var(--amber-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -91,8 +96,8 @@ export default {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-gold": {
-          "0%, 100%": { boxShadow: "0 0 0 0 hsl(45 90% 55% / 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px hsl(45 90% 55% / 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(38 85% 55% / 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px hsl(38 85% 55% / 0)" },
         },
       },
       animation: {

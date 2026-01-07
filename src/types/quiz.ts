@@ -1,4 +1,8 @@
 export interface QuizAnswers {
+  nome?: string;
+  email?: string;
+  whatsapp?: string;
+  instagram?: string;
   atuacao?: string;
   perfil_atuacao?: string;
   tempo_mercado?: string;
@@ -38,7 +42,7 @@ export interface SlideOption {
 
 export interface SlideConfig {
   id: number;
-  type: 'choice' | 'intro' | 'question' | 'loading' | 'result';
+  type: 'personal_data' | 'choice' | 'intro' | 'question' | 'loading' | 'result';
   title?: string;
   subtitle?: string;
   question?: string;

@@ -24,15 +24,17 @@ export function OptionCard({
       onClick={onClick}
       className={cn(
         "relative w-full text-left rounded-xl border-2 transition-all duration-200",
-        "hover:border-accent hover:shadow-card",
-        "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
+        "hover:border-accent hover:shadow-card hover:bg-card/50",
+        "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background",
         variant === 'large' ? "p-6" : "p-4",
         selected 
-          ? "border-accent bg-accent/10 shadow-card" 
-          : "border-border bg-card"
+          ? "border-accent bg-accent/20 shadow-card text-foreground" 
+          : "border-border/50 bg-card/80 text-foreground"
       )}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      animate={selected ? { scale: 1.05, boxShadow: "0 0 20px rgba(255, 215, 0, 0.3)" } : {}}
+      transition={{ duration: 0.2 }}
     >
       <div className="flex items-center gap-4">
         {icon && (

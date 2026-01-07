@@ -22,6 +22,12 @@ export const quizSlides: SlideConfig[] = [
   },
   {
     id: 3,
+    type: 'personal_data',
+    title: 'Vamos começar!',
+    subtitle: 'Precisamos de algumas informações para personalizar seu diagnóstico.',
+  },
+  {
+    id: 4,
     type: 'question',
     question: 'Qual descrição representa melhor o seu perfil de atuação atual?',
     options: [
@@ -33,7 +39,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'perfil_atuacao',
   },
   {
-    id: 4,
+    id: 5,
     type: 'question',
     question: 'Há quanto tempo você atua de forma consistente no seu mercado?',
     options: [
@@ -45,7 +51,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'tempo_mercado',
   },
   {
-    id: 5,
+    id: 6,
     type: 'question',
     question: 'Qual faixa descreve melhor seu faturamento médio mensal atual?',
     options: [
@@ -59,7 +65,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'faturamento_mensal',
   },
   {
-    id: 6,
+    id: 7,
     type: 'question',
     question: 'Que tipo de demanda você atrai com mais frequência?',
     options: [
@@ -71,7 +77,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'tipo_demanda',
   },
   {
-    id: 7,
+    id: 8,
     type: 'question',
     question: 'Na prática, qual é a natureza do problema que você resolve melhor?',
     options: [
@@ -83,7 +89,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'natureza_problema',
   },
   {
-    id: 8,
+    id: 9,
     type: 'question',
     question: 'Quantos atendimentos ou projetos simultâneos você consegue sustentar com qualidade?',
     options: [
@@ -95,7 +101,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'capacidade_projetos',
   },
   {
-    id: 9,
+    id: 10,
     type: 'question',
     question: 'Quanto tempo por semana você pode dedicar, de forma realista, para mentorar outras pessoas?',
     options: [
@@ -107,7 +113,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'horas_semanais',
   },
   {
-    id: 10,
+    id: 11,
     type: 'question',
     question: 'Como você descreveria o estado atual do seu conhecimento e metodologia?',
     options: [
@@ -119,7 +125,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'estado_metodologia',
   },
   {
-    id: 11,
+    id: 12,
     type: 'question',
     question: 'Qual é a capacidade de investimento do público que você atende ou deseja atender?',
     options: [
@@ -131,7 +137,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'capacidade_investimento_publico',
   },
   {
-    id: 12,
+    id: 13,
     type: 'question',
     question: 'Qual é o seu objetivo principal nos próximos 90 dias?',
     options: [
@@ -143,7 +149,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'objetivo_90_dias',
   },
   {
-    id: 13,
+    id: 14,
     type: 'question',
     question: 'Que tipo de relacionamento você prefere construir com seus mentorados?',
     options: [
@@ -155,7 +161,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'relacionamento_preferido',
   },
   {
-    id: 14,
+    id: 15,
     type: 'question',
     question: 'Qual posicionamento você deseja ocupar no mercado?',
     options: [
@@ -167,7 +173,7 @@ export const quizSlides: SlideConfig[] = [
     answerKey: 'posicionamento_desejado',
   },
   {
-    id: 15,
+    id: 16,
     type: 'loading',
     title: 'Só um minuto!',
     subtitle: 'Estamos calculando o seu resultado…',

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
-import { Loader2, ArrowRight, RotateCcw, Calendar } from 'lucide-react';
+import { Loader2, ArrowRight, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { CTA_URL } from '@/data/quizSlides';
+import { Logo } from '@/components/Logo';
+import { ResultDisplay } from '@/components/ResultDisplay';
 
 export default function Resultado() {
   const [searchParams] = useSearchParams();
@@ -14,6 +15,7 @@ export default function Resultado() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState<string | null>(null);
+  const [resultJson, setResultJson] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   const submissionId = searchParams.get('id');
@@ -40,6 +42,13 @@ export default function Resultado() {
 
       if (existingResult) {
         setResult(existingResult.result_markdown);
+        // Try to parse as JSON
+        try {
+          const json = JSON.parse(existingResult.result_markdown);
+          setResultJson(json);
+        } catch {
+          // It's markdown, not JSON
+        }
         setLoading(false);
         return;
       }
@@ -53,6 +62,17 @@ export default function Resultado() {
       
       if (data?.result_markdown) {
         setResult(data.result_markdown);
+        if (data?.result_json) {
+          setResultJson(data.result_json);
+        } else {
+          // Try to parse as JSON
+          try {
+            const json = JSON.parse(data.result_markdown);
+            setResultJson(json);
+          } catch {
+            // It's markdown, not JSON
+          }
+        }
       } else {
         throw new Error('Resultado não encontrado');
       }
@@ -112,9 +132,7 @@ export default function Resultado() {
       {/* Header */}
       <header className="w-full py-4 px-4 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur-sm z-10">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-display font-bold text-primary">
-            Diagnóstico de Mentoria
-          </h1>
+          <Logo size="sm" />
           <Button
             variant="ghost"
             size="sm"
@@ -136,22 +154,20 @@ export default function Resultado() {
         >
           {/* Result header */}
           <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
               Resultado do Diagnóstico
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
               Seu Plano Estratégico de Mentoria
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
               Baseado nas suas respostas, criamos uma análise personalizada do seu potencial como mentor.
             </p>
           </div>
 
-          {/* Markdown result */}
-          <div className="bg-card rounded-2xl p-6 md:p-8 lg:p-10 shadow-card border border-border/50 mb-10">
-            <article className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-primary prose-h1:text-2xl prose-h2:text-xl prose-h2:border-b prose-h2:border-border prose-h2:pb-2 prose-h2:mb-4 prose-p:text-foreground/80 prose-strong:text-foreground prose-li:text-foreground/80 prose-ul:space-y-2">
-              <ReactMarkdown>{result || ''}</ReactMarkdown>
-            </article>
+          {/* Premium Result Display */}
+          <div className="bg-card rounded-2xl p-6 md:p-8 lg:p-10 shadow-card border border-border/80 mb-10">
+            <ResultDisplay markdown={result || ''} jsonData={resultJson} />
           </div>
 
           {/* CTA Section */}
@@ -159,13 +175,13 @@ export default function Resultado() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="bg-gradient-navy rounded-2xl p-8 md:p-10 text-center shadow-elegant"
+            className="bg-gradient-brown rounded-2xl p-8 md:p-10 text-center shadow-elegant"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
               Pronto para dar o próximo passo?
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
-              Agende uma reunião estratégica gratuita para discutir como implementar esse modelo de mentoria no seu negócio.
+            <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
+              Fale com um especialista para discutir como implementar esse modelo de mentoria no seu negócio.
             </p>
             
             <motion.div
@@ -175,10 +191,9 @@ export default function Resultado() {
               <Button
                 onClick={handleCTA}
                 size="lg"
-                className="gap-2 bg-gradient-gold text-accent-foreground hover:opacity-90 font-bold text-lg px-8 py-6"
+                className="gap-2 bg-gradient-gold text-white hover:opacity-90 font-bold text-lg px-8 py-6"
               >
-                <Calendar className="w-5 h-5" />
-                SOLICITAR REUNIÃO ESTRATÉGICA
+                FALAR COM O ESPECIALISTA
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </motion.div>
@@ -188,7 +203,7 @@ export default function Resultado() {
 
       {/* Footer */}
       <footer className="py-6 text-center text-sm text-muted-foreground border-t border-border/50">
-        © {new Date().getFullYear()} Diagnóstico de Mentoria. Todos os direitos reservados.
+        © {new Date().getFullYear()} Instituto Global de Mentores. Todos os direitos reservados.
       </footer>
     </div>
   );

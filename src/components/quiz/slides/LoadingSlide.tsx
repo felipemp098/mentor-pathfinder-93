@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Loader2, Brain, Sparkles, Target } from 'lucide-react';
+import { Brain, Sparkles, Target } from 'lucide-react';
 import { SlideConfig } from '@/types/quiz';
 
 interface LoadingSlideProps {
@@ -8,9 +8,9 @@ interface LoadingSlideProps {
 }
 
 const loadingSteps = [
-  { icon: Brain, text: 'Analisando seu perfil...' },
-  { icon: Target, text: 'Identificando oportunidades...' },
-  { icon: Sparkles, text: 'Gerando recomendações personalizadas...' },
+  { icon: Brain, text: 'Analisando suas respostas...' },
+  { icon: Target, text: 'Confirmando resultado...' },
+  { icon: Sparkles, text: 'Gerando plano de mentoria...' },
 ];
 
 export function LoadingSlide({ slide }: LoadingSlideProps) {
@@ -49,12 +49,12 @@ export function LoadingSlide({ slide }: LoadingSlideProps) {
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
           >
-            <CurrentIcon className="w-12 h-12 text-accent-foreground" />
+            <CurrentIcon className="w-12 h-12 text-white" />
           </motion.div>
         </div>
       </motion.div>
 
-      <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-4">
+      <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
         {slide.title}
       </h2>
       
@@ -62,6 +62,8 @@ export function LoadingSlide({ slide }: LoadingSlideProps) {
         key={currentStep}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
         className="text-lg text-muted-foreground"
       >
         {loadingSteps[currentStep].text}

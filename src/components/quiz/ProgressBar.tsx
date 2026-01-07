@@ -14,7 +14,7 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
         <span className="text-sm font-medium text-muted-foreground">
           Progresso
         </span>
-        <span className="text-sm font-semibold text-primary">
+        <span className="text-sm font-semibold text-accent">
           {current}/{total}
         </span>
       </div>
